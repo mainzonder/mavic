@@ -19,27 +19,26 @@
     font-size: 15px;
     @extend %ubuntu-medium;
   }
+
   &__btn {
-    &__btn {
-      color: #ffff;
-      background-color: transparent;
-      padding: 6px 28px;
-      border: 1px solid #fff;
-      border-radius: 3px;
-      margin-right: 8px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.3s;
-      &:hover {
-        color: #000;
-        background-color: #fff;
-      }
+    color: #fff;
+    background-color: transparent;
+    padding: 6px 28px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    margin-right: 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      color: #000;
+      background-color: #fff;
     }
-    &__phone {
-      font-size: 16px;
-      line-height: 18px;
-      @extend %ubuntu-bold;
-    }
+  }
+  &__phone {
+    font-size: 16px;
+    line-height: 18px;
+    @extend %ubuntu-bold;
   }
 }
 
@@ -186,10 +185,16 @@
       margin-left: 40px;
       transform: translateY(25px);
     }
+    &:nth-child(3) {
+      margin-left: 30px;
+    }
+    &:nth-child(4) {
+      margin-left: 60px;
+    }
   }
 
-  &__item-1,
-  &__item-3 {
+  &:first-child,
+  &:nth-child(3) {
     position: relative;
     &::after,
     &::before {
@@ -199,7 +204,7 @@
       background-position: 0 0;
     }
   }
-  &__item-1 {
+  &:first-child {
     &:before {
       height: 48px;
       width: 245px;
@@ -208,11 +213,11 @@
       top: 31px;
     }
   }
-  &__item-3 {
+  &:nth-child(3) {
     &::before {
       background-image: url("../images/line-3.svg");
       width: 254px;
-      height: 39px;
+      height: 43px;
       right: -55px;
       top: 50px;
     }
@@ -257,6 +262,265 @@
   &__info-text {
     font-size: 15px;
     line-height: 18px;
+  }
+}
+.specification {
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 25px;
+  }
+  &__item--center {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  &__box {
+    width: 280px;
+    position: relative;
+    margin-top: 10px;
+    &::before {
+      content: "";
+      position: absolute;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: contain;
+    }
+  }
+  &__box-2 {
+    margin-top: 140px;
+  }
+  &__box-4 {
+    margin-top: 160px;
+  }
+  &__box-1::before {
+    background-image: url("../images/pointer-1.svg");
+    width: 229px;
+    height: 114px;
+    right: -140px;
+    top: 16px;
+  }
+  &__box-2::before {
+    background-image: url("../images/pointer-2.svg");
+    width: 345px;
+    height: 81px;
+    right: -308px;
+    top: -65px;
+  }
+  &__box-3::before {
+    background-image: url("../images/pointer-3.svg");
+    width: 258px;
+    height: 103px;
+    left: -300px;
+    top: 16px;
+  }
+  &__box-4::before {
+    background-image: url("../images/pointer-4.svg");
+    width: 124px;
+    height: 89px;
+    left: -172px;
+    top: -73px;
+  }
+
+  &__box-title {
+    font-size: 21px;
+    line-height: 28px;
+    @extend %ubuntu-bold;
+    margin-bottom: 10px;
+  }
+  &__box-text {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+
+.questions {
+  &__items {
+    max-width: 757px;
+    padding-bottom: 15px;
+  }
+  &__item {
+    background-color: rgba(0, 0, 0, 0.3);
+    max-width: 690px;
+    position: relative;
+    &:nth-child(3)::before {
+      content: "";
+      position: absolute;
+      width: 319px;
+      height: 125px;
+      top: -33px;
+      right: -386px;
+      background-image: url("../images/questions-bg.png");
+    }
+  }
+  &__item-title {
+    line-height: 28px;
+    font-size: 21px;
+    @extend %ubuntu-medium;
+    color: rgba(#fff, 0.8);
+    padding: 20px 10px 20px 40px;
+    position: relative;
+    margin-bottom: 4px;
+    cursor: pointer;
+    &::after {
+      content: url("../images/accordion-arrow.svg");
+      position: absolute;
+      width: 72px;
+      height: 67px;
+      background-color: #fff;
+      right: -72px;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__item-text {
+    padding: 0 5px 75px 50px;
+    font-size: 15px;
+    line-height: 22px;
+    margin: 0 0 4px;
+    display: none;
+    // visibility: hidden; вар2
+    // height: 0;
+    // transition: all 0.3s;
+    // opacity: 0;
+  }
+  &__item.questions__item--active {
+    .questions__item-title::after {
+      transform: rotate(180deg);
+    }
+    .questions__item-text {
+      display: block;
+      // visibility: visible; вар2
+      // height: 100%;
+      // padding: 0 5px 75px 50px;
+      // opacity: 1;
+    }
+  }
+}
+
+.contacts {
+  &__inner {
+    display: flex;
+    padding-left: 25px;
+  }
+  &__info {
+    width: 240px;
+    margin-right: 60px;
+  }
+  &__info-box {
+    margin-bottom: 30px;
+  }
+  &__info-title {
+    line-height: 24px;
+    font-size: 21px;
+    @extend %ubuntu-bold;
+    margin: 0 0 13px;
+  }
+
+  &__info-phone,
+  &__info-email {
+    font-size: 15px;
+    line-height: 18px;
+  }
+  &__info-email:hover {
+    text-decoration: underline;
+  }
+  &__form {
+    width: 570px;
+    margin-right: 106px;
+  }
+
+  &__form-title {
+    line-height: 24 px;
+    font-size: 21px;
+    @extend %ubuntu-bold;
+    margin: 0 0 13px;
+  }
+  &__form-text {
+    font-size: 15px;
+    line-height: 18px;
+    margin: 0 0 12px;
+  }
+  &__form-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  &__form-input,
+  &__form-textarea {
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    @extend %ubuntu-regular;
+    padding: 15px;
+    font-size: 13px;
+    line-height: 15px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    &::placeholder {
+      color: rgba(#ffff, 0.4);
+    }
+  }
+
+  &__form-input {
+    width: 49%;
+  }
+  &__form-textarea {
+    min-height: 144px;
+    width: 100%;
+    resize: none;
+    margin-bottom: 20px;
+  }
+  &__form-btn {
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.03em;
+    @extend %ubuntu-bold;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    padding: 9px 15px;
+    color: #ffffff;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      background: #fff;
+      color: #000;
+    }
+  }
+
+  &__social-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__social-item {
+    margin: 14px 0;
+  }
+
+  &__social-link {
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  &__copy {
+    text-align: right;
+    font-size: 13px;
+    line-height: 15px;
+    color: rgba(#fff, 0.6);
   }
 }
 @import "media";
